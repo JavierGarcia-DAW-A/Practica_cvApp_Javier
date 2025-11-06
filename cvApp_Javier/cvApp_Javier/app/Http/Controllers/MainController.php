@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Alumno;
+use App\Models\Curriculum;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -13,7 +13,7 @@ class MainController extends Controller
     }
 
     function main(): View {
-        $alumnos = Alumno::all();
+        $alumnos = Curriculum::all();
         return view('main.main', ['alumnos' => $alumnos]);
     }
 }
