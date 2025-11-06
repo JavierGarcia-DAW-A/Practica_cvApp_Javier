@@ -9,12 +9,18 @@ use Illuminate\View\View;
 class MainController extends Controller
 {
     function about(): View {
-        return view('main.about');
+        return view('curriculum.about');
     }
 
-    function main(): View {
-        $alumnos = Curriculum::all();
-        return view('main.main', ['alumnos' => $alumnos]);
-    }
+    public function main()
+        {
+            // Obtenemos los últimos alumnos (puedes cambiar la cantidad o el orden)
+            $curriculums = Curriculum::all();
+
+            // Enviamos la variable a la vista
+            return view('curriculum.main', compact('curriculums'));
+        }
+
 }
+
 

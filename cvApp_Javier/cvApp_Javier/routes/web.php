@@ -4,7 +4,7 @@ use App\Http\Controllers\CurriculumController;
 use App\Http\Controllers\MainController;
 
 Route::get('/', [MainController::class, 'main'])->name('main');
-Route::get('about', [MainController::class, 'about'])->name('about');
+Route::get('about', [MainController::class, 'about'])->name('curriculum.about');
 
 Route::get('curriculum', [CurriculumController::class, 'index'])->name('curriculum.index');
 Route::get('curriculum/create', [CurriculumController::class, 'create'])->name('curriculum.create');

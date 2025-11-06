@@ -12,9 +12,9 @@
     <a class="navbar-brand" href="{{ route('main') }}">CV App</a>
     <div>
       <a class="nav-link d-inline text-white" href="{{ route('main') }}">Inicio</a>
-      <a class="nav-link d-inline text-white" href="{{ route('curriculum.index') }}">Curriculums</a>
-      <a class="nav-link d-inline text-white" href="{{ route('curriculum.create') }}">Nuevo CV</a>
-      <a class="nav-link d-inline text-white" href="{{ route('about') }}">Acerca</a>
+      <a class="nav-link d-inline text-white" href="{{ route('curriculum.index') }}">Alumnos</a>
+      <a class="nav-link d-inline text-white" href="{{ route('curriculum.create') }}">Nuevo Alumno</a>
+      <a class="nav-link d-inline text-white" href="{{ route('curriculum.about') }}">Acerca</a>
     </div>
   </div>
 </nav>
