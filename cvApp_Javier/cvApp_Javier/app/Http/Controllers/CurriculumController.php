@@ -25,14 +25,28 @@ class CurriculumController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->except(['pdf','fotografia']);
+        $data = $request->all();
+
+        $nombre = $request->input('nombre');
+        $apellidos = $request->input('apellidos');
+        $nombreCompleto = $nombre . ' ' . $apellidos;
+        $timestamp = now()->timestamp;
+        $baseFileName = "{$nombreCompleto}_{$timestamp}";
 
         if($request->hasFile('pdf')){
-            $data['pdf'] = $request->file('pdf')->store('pdfs','public');
+            $pdf = $request->file('pdf');
+            $extensionPDF = $pdf->getClientOriginalExtension();
+            $pdfFileName = "{$baseFileName}.{$extensionPDF}";
+            
+            $data['pdf'] = $pdf->storeAs('pdfs', $pdfFileName, 'public');
         }
 
         if($request->hasFile('fotografia')){
-            $data['fotografia'] = $request->file('fotografia')->store('fotos','public');
+            $foto = $request->file('fotografia');
+            $extensionFoto = $foto->getClientOriginalExtension();
+            $fotoFileName = "{$baseFileName}.{$extensionFoto}";
+
+            $data['fotografia'] = $foto->storeAs('fotos', $fotoFileName, 'public');
         }
 
         Curriculum::create($data);
